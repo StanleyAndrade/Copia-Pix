@@ -1,0 +1,34 @@
+<!--Crie um formulário usando o Elementor com um campo apenas e um botão. Renomei o botão para "Copiar Chave Pix"
+No form Fields, em content, o type é sempre "text". Column width é 70%
+Em ADVANCED, coloque em default Value o que será copiado, (no caso a chave pix.) No ID escrever a palavra "conteudo"
+Em "action, apagar tudo. 
+Em Steps Settings, em type, selecionar number & text. Em Shape, selecione "Circle"
+No elementor, coloque um HTML no campo do form
+-->
+
+<!--Coloque esse código dentro do script apenas se usar o layout elementor canva-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script>
+jQuery(document).ready(function(){
+    
+
+   var btn = jQuery('.elementor-field-group button').attr('type', 'button');
+   
+   var conteudo = '#form-field-conteudo';
+    
+    /*FUNÇÃO QUE COPIA*/
+    jQuery(btn).click(function(){
+        jQuery(conteudo).select();
+        document.execCommand('copy');
+        jQuery(this).text('Copiado!');
+        jQuery(this).css('background-color','black');
+        jQuery(this).css('color','white');
+        setTimeout(function(){
+            jQuery(btn).text('Copiar Chave Pix Novamente');
+            jQuery(btn).css('background-color','#EF6909');
+            jQuery(btn).css('color','white');
+        },3000);
+    });
+});
+</script>
